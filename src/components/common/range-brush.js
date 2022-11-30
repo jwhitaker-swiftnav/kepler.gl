@@ -150,8 +150,8 @@ function RangeBrushFactory() {
       } = this.props;
       const [prevVal0, prevVal1] = prevProps.value;
 
-      if (prevProps.width !== width) {
-        // width change should not trigger this._brushed
+      if (prevProps.width !== width || prevProps.range[0] !== this.props.range[0] || prevProps.range[1] !== this.props.range[1]) {
+        // dimension change should not trigger this._brushed
         this.moving = true;
         this.root.call(this.brush);
         this._move(val0, val1);
